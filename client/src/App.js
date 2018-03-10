@@ -10,6 +10,8 @@ import SignUp from "./pages/SignUp";
 import Profile from "./pages/Profile";
 import LogIn from "./pages/LogIn";
 import LogOut from "./pages/LogOut";
+import Forgot from "./pages/Forgot";
+import Reset from "./pages/Reset";
 import Footer from "./components/Footer";
 import Admin from "./pages/Admin";
 import "./App.css";
@@ -81,6 +83,8 @@ render() {
             />
             <Route exact path="/LogOut" component={LogOut} />
             <Route exact path="/LogIn" component={LogIn} />
+            <Route exact path="/forgot" component={Forgot} />
+            <Route path="/reset" component={Reset} />
             <Route exact path="/Admin" component={Admin} />
           </Wrapper>
           <Footer />

@@ -196,10 +196,11 @@ canBeSubmitted() {
                 />
                 <small id="emailHelp" className="form-text text-muted">We'll never share your email with anyone else.</small>
               </div>
+
               <div className="form-group">
                 <label htmlFor="passwordInput1">Password</label>
                 <input
-                onBlur={this.handleBlur('password')}
+                  onBlur={this.handleBlur('password')}
                   type="password"
                   className={shouldMarkError('password') ? "error form-control" : "form-control"}
                   id="passwordInput1"
