@@ -9,7 +9,7 @@ const MongoStore = require('connect-mongo')(session)
 const passport = require('./passport')
 const mongoose = require("mongoose");
 const logger = require("morgan");
-// const zoho = require('./routes/zoho');
+const zoho = require('./routes/zoho');
 
 
 
@@ -70,34 +70,34 @@ if (process.env.NODE_ENV === "production") {
 //****NOTE THAT THESE ROUTES CAN BE TESTED LOCALLY BY GOING TO LOCALHOST:3001****//
 
 //get all leads
-// app.get("/api/leads", function(req, res) {
+app.get("/api/leads", function(req, res) {
 
-//   zoho.getLeads(function (err, result) {
-//  		if (err !== null) {
-//     		console.log(err);
-//   		} else if (result.isError()) {
-//     		console.log(result.message);
-//   		} else {
+  zoho.getLeads(function (err, result) {
+ 		if (err !== null) {
+    		console.log(err);
+  		} else if (result.isError()) {
+    		console.log(result.message);
+  		} else {
   
-//     	res.send(result.data);
-//     	}
-//   });
+    	res.send(result.data);
+    	}
+  });
   
-// });
+});
 
-// //create one contact (which is hard coded in zoho module right now)
-// app.post("/api/contacts/create",function(req,res){
-// 	zoho.createContact(function(err,result){
-// 		if (err !== null) {
-//     		console.log(err);
-//   		} else if (result.isError()) {
-//     		console.log(result.message);
-//   		} else {
+//create one contact (which is hard coded in zoho module right now)
+app.post("/api/contacts/create",function(req,res){
+	zoho.createContact(function(err,result){
+		if (err !== null) {
+    		console.log(err);
+  		} else if (result.isError()) {
+    		console.log(result.message);
+  		} else {
   
-//     	res.send(result.data);
-//     	}
-// 	})
-// })
+    	res.send(result.data);
+    	}
+	})
+})
 
 // Send every request to the React app
 // Define any API routes before this runs
